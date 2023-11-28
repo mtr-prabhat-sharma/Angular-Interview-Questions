@@ -36,6 +36,11 @@ Interceptors are used for tasks such as:
 2 - Logging: You can log information about each request or response.
 3 - Error Handling: You can handle errors globally for all HTTP requests.
 4 - Transforming Requests or Responses: You can modify the request or response data before it is sent or after it is received.
+
+To create an interceptor in Angular, you need to implement the HttpInterceptor 
+interface. This interface has a single method, intercept, which you implement to 
+define the interceptor's behavior.
+
 import { Injectable } from '@angular/core';
 import {
   HttpEvent,
