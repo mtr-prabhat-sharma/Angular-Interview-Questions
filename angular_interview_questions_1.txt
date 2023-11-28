@@ -11,4 +11,18 @@ There are 4 types of decorators in Angular
 4-Parameter decorators for parameters inside class constructors, such as @Injectable
 
 QUES 2: What are Route Guards in Angular ?
-ANS 2: 
+ANS 2: Route guards in Angular are a way to control access to routes based on 
+certain conditions.
+Route guard is used to grant or remove access from certain parts of the application.
+Like we want our app to stop unauthorized users from accessing the protected route.
+There are 4 types of Route Guards in Angular:
+1 - CanActivate: User must be logged in before accessing the particular route.
+2 - CanActivateChild: It is used to guard child routes.
+3 - CanDeactivate:The Angular CanDeactivate guard is a service that can be used to 
+                  prevent users from navigating away from a route/page in your 
+                  application. For example, if the page contains a text editor with 
+                  unsaved changes or an unsubmitted form, you can use the 
+                  CanDeactivate guard to prevent the user from navigating away from 
+                  the page until they have saved their changes or submitted the form.
+4 - AngularResolver/Resolve: It prefetches the data before navigating to the route. 
+                             So that component will render along with the data.
