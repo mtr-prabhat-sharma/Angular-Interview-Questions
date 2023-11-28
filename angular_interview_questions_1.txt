@@ -1,0 +1,14 @@
+QUES 1: What are decorators in Angular ?
+ANS 1: Angular decorators are a feature that was introduced in Angular 2.0.
+They are a way to add metadata to classes, methods, properties, and parameters.
+This metadata can then be used by Angular to perform certain actions, 
+such as logging, caching, or routing.
+
+There are 4 types of decorators in Angular
+1-Class decorators, such as @Component and @NgModule
+2-Property decorators for properties inside classes, such as @Input and @Output
+3-Method decorators for methods inside classes, such as @HostListener
+4-Parameter decorators for parameters inside class constructors, such as @Injectable
+
+QUES 2: What are Route Guards in Angular ?
+ANS 2: 
