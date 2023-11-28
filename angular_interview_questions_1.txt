@@ -12,17 +12,53 @@ There are 4 types of decorators in Angular
 
 QUES 2: What are Route Guards in Angular ?
 ANS 2: Route guards in Angular are a way to control access to routes based on 
-certain conditions.
-Route guard is used to grant or remove access from certain parts of the application.
-Like we want our app to stop unauthorized users from accessing the protected route.
-There are 4 types of Route Guards in Angular:
-1 - CanActivate: User must be logged in before accessing the particular route.
-2 - CanActivateChild: It is used to guard child routes.
-3 - CanDeactivate:The Angular CanDeactivate guard is a service that can be used to 
+       certain conditions.
+       Route guard is used to grant or remove access from certain parts of the application.
+       Like we want our app to stop unauthorized users from accessing the protected route.
+       There are 4 types of Route Guards in Angular:
+       1 - CanActivate: User must be logged in before accessing the particular route.
+       2 - CanActivateChild: It is used to guard child routes.
+       3 - CanDeactivate:The Angular CanDeactivate guard is a service that can be used to 
                   prevent users from navigating away from a route/page in your 
                   application. For example, if the page contains a text editor with 
                   unsaved changes or an unsubmitted form, you can use the 
                   CanDeactivate guard to prevent the user from navigating away from 
                   the page until they have saved their changes or submitted the form.
-4 - AngularResolver/Resolve: It prefetches the data before navigating to the route. 
+       4 - AngularResolver/Resolve: It prefetches the data before navigating to the route. 
                              So that component will render along with the data.
+
+QUES 4: What are interceptors in Angular ?
+ANS 4: In Angular, interceptors are a way to intercept and modify HTTP requests or 
+responses before they are sent to the server or after they are received 
+from the server. 
+Interceptors are used for tasks such as:
+1 - Adding Headers: You can add custom headers to every outgoing HTTP request.
+2 - Logging: You can log information about each request or response.
+3 - Error Handling: You can handle errors globally for all HTTP requests.
+4 - Transforming Requests or Responses: You can modify the request or response data before it is sent or after it is received.
+import { Injectable } from '@angular/core';
+import {
+  HttpEvent,
+  HttpInterceptor,
+  HttpHandler,
+  HttpRequest
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable()
+export class MyInterceptor implements HttpInterceptor {
+  intercept(
+    request: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    // Add a custom header to the request
+    const modifiedRequest = request.clone({
+      setHeaders: { 'X-Custom-Header': 'Interceptor added header' }
+    });
+
+    // Pass the modified request to the next handler in the chain
+    return next.handle(modifiedRequest);
+  }
+}
+
+
