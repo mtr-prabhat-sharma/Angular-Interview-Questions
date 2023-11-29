@@ -66,4 +66,17 @@ export class MyInterceptor implements HttpInterceptor {
   }
 }
 
+QUES 5: About ng content in Angular ?
+ANS 5: The ng-content is used when we want to insert the content dynamically inside 
+the component that helps to increase component reusability. 
+Using ng-content we can pass content inside the component selector and when angular 
+parses that content that appears at the place of ng-content.
+How ng content works -
+First create a component demo
+then in app component using demo selector <app-demo>
+<app-demo>
+    <h3>Data using ng-content</h3>
+</app-demo>
+then in demo component. render the above data using ng content
+<ng-content></ng-content>
 
