@@ -1,0 +1,6 @@
+SWITCH MAP
+SwitchMap works same as mergeMap, the only diference is that it cancels all the previous 
+observables whenever a new observable event occurs.
+switchMap is particularly useful in scenarios where you want to cancel the previous 
+observable (e.g., an ongoing HTTP request) when a new event occurs. It's a powerful 
+operator for handling asynchronous operations in Angular applications.
