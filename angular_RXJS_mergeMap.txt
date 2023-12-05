@@ -1,0 +1,53 @@
+1. MergeMap:
+The Angular MergeMap maps each value from the source observable into an inner 
+observable, subscribes to it, and then starts emitting the values from it replacing 
+the original value. It creates a new inner observable for every value it receives 
+from the Source. 
+Unlike SwitchMap, MergeMap does not cancel any of its inner 
+observables. It merges the values from all of its inner observables and emits the 
+values back into the stream.
+
+The following code shows how to use MergeMap in Angular. 
+We have two observables srcObservable which emits 1,2,3,4 & innerObservable which 
+emits 'A','B','C','D'.
+
+let srcObservable= of(1,2,3,4)
+let innerObservable= of('A','B','C','D')
+ 
+srcObservable.pipe(
+  mergeMap( val => {
+    console.log('Source value '+val)
+    console.log('starting new observable')
+    return innerObservable
+  })
+)
+.subscribe(ret=> {
+  console.log('Recd ' + ret);
+})
+ 
+ 
+//Output
+Source value 1
+starting new observable
+Recd A
+Recd B
+Recd C
+Recd D
+Source value 2
+starting new observable
+Recd A
+Recd B
+Recd C
+Recd D
+Source value 3
+starting new observable
+Recd A
+Recd B
+Recd C
+Recd D
+Source value 4
+starting new observable
+Recd A
+Recd B
+Recd C
+Recd D
